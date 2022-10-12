@@ -1,0 +1,23 @@
+dependencies:
+  - OpenZeppelin/openzeppelin-contracts@4.4.1
+#  - smartcontractkit/chainlink-brownie-contracts@1.1.1
+compiler:
+  solc:
+    remappings:
+      - '@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.4.1'
+#      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1'
+dotenv: .env
+
+networks:
+  mainnet:
+    verify: True
+  rinkeby:
+    verify: True
+
+wallets:
+  dev-account: ${DEV_PRIVATE_KEY}
+  normie-account: ${DEV2_PRIVATE_KEY}
+  whitelist-account: ${DEV3_PRIVATE_KEY}
+  teammember1-account-account: ${DEV4_PRIVATE_KEY}
+  teammember2-account-account: ${DEV5_PRIVATE_KEY}
+  burn-account1: ${BURNACCOUNT1_PRIVATE_KEY}

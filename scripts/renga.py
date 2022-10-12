@@ -1,9 +1,10 @@
 import time
-from brownie import network, accounts, config, Contract, MRCRYPTO
+from brownie import network, accounts, Contract
 import json
 import os
 import web3
 import dotenv
+
 dotenv.load_dotenv()
 
 # =============================== CONFIGURAITON =====================================
@@ -18,12 +19,12 @@ maxFeePerGas = 50
 maxPriorityFeePerGas = 10
 PRICE_VARIABLE_NAME = 'publicSalePrice'
 openSaleBoolean = 'publicSaleOpen'
+
+
 # ===================================================================================
 
 
 def get_contract():
-
-
     if network.show_active() == 'mainnet':
         return Contract.from_abi(
             NFTname,
@@ -34,7 +35,6 @@ def get_contract():
         raise ValueError("Not in mainnet")
 
 
-
 def get_minting_account() -> str:
     pkey = os.getenv(f'DEV00_PRIVATE_KEY')
     assert pkey is not None, "No private key"
@@ -42,7 +42,6 @@ def get_minting_account() -> str:
     assert account.balance() > 0, "No ether in wallet"
     print(f"account balance: {account.balance()} eth")
     return account
-
 
 
 def main():
